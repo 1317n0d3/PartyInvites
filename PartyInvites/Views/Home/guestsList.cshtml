@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>guestsList</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>Will Attend</td>
+            </tr>
+            @foreach (PartyInvites.Models.GuestResponse item in ViewBag.Item)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Phone</td>
+                    <td>
+                        @if(@item.WillAttend == true)
+                        {
+                            @:Будет присутствовать
+                        }
+                        else
+                        {
+                            @:Не будет присутствовать
+                        }
+                    </td>
+                </tr>
+            }
+</table>
+        </div>
+    </body>
+</html>
